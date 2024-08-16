@@ -1,0 +1,6 @@
+@lab2_boba_HostAddress = http://localhost:5210
+
+GET {{lab2_boba_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
