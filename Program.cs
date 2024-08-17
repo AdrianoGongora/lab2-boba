@@ -1,9 +1,21 @@
 var builder = WebApplication.CreateBuilder(args);
+const string cors = "Cors";
 
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: cors,
+        corsPolicyBuilder =>
+        {
+            corsPolicyBuilder.WithOrigins("*");
+            corsPolicyBuilder.AllowAnyMethod();
+            corsPolicyBuilder.AllowAnyHeader();
+        });
+});
 
 var app = builder.Build();
 
